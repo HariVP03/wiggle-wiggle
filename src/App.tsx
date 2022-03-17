@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import React, { Suspense, useRef } from "react";
 import "./App.scss";
-import { MeshWobbleMaterial, Stage } from "@react-three/drei";
+import { MeshWobbleMaterial, Stage, OrbitControls } from "@react-three/drei";
 
 const Box: React.FC<{
   pos?: Array<number>;
@@ -32,9 +32,9 @@ const App: React.FC = () => {
       </h1>
       <Suspense fallback="no">
         <Canvas camera={{ position: [-5, 2, 2], fov: 60 }}>
+          <OrbitControls />
           <ambientLight intensity={0.5} />
           <Stage
-            // contactShadow
             shadows
             adjustCamera
             intensity={1}
